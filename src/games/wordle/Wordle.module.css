@@ -1,0 +1,148 @@
+:root {
+  /* Wordle 配色 */
+  --correct: #6AAA64;
+  --present: #C9B458;
+  --absent:  #787C7E;
+
+  --tile-border: #d3d6da;
+  --tile-size: 64px;         /* 你可以改为 56/60 实现不同尺寸 */
+  --tile-radius: 4px;
+}
+
+/* 容器与消息条 */
+.game {
+  display: grid;
+  row-gap: 16px;
+  justify-items: center;
+}
+
+.message {
+  background: #111827;  /* 深灰 */
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* 棋盘区域 */
+.board {
+  display: grid;
+  row-gap: 8px;
+}
+
+.row {
+  display: flex;
+  column-gap: 8px;
+}
+
+/* 单个格子（tile） */
+.tile {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border: 2px solid var(--tile-border);
+  border-radius: var(--tile-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 22px;
+  text-transform: uppercase;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* 状态色 */
+.correct {
+  background: var(--correct);
+  color: #fff;
+  border-color: var(--correct);
+}
+
+.present {
+  background: var(--present);
+  color: #fff;
+  border-color: var(--present);
+}
+
+.absent {
+  background: var(--absent);
+  color: #fff;
+  border-color: var(--absent);
+}
+
+.empty {
+  background: #fff;
+  color: #111827;
+  border-color: var(--tile-border);
+}
+
+/* 控制区按钮 */
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #f8fafc;
+}
+
+/* 键盘 */
+.kb {
+  display: grid;
+  row-gap: 8px;
+  user-select: none;
+}
+
+.kbRow {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.key {
+  height: 44px;
+  min-width: 36px;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: #e5e7eb; /* 灰 */
+  color: #111827;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 0 rgba(0,0,0,.15);
+  cursor: pointer;
+  border: none;
+}
+
+.key:active {
+  transform: translateY(1px);
+}
+
+.keyWide {
+  min-width: 56px;
+  padding: 0 12px;
+}
+
+.keyCorrect { background: var(--correct); color: #fff; }
+.keyPresent { background: var(--present); color: #fff; }
+.keyAbsent  { background: var(--absent);  color: #fff; }
+
+/* 可选：小屏适配 */
+@media (max-width: 420px) {
+  :root { --tile-size: 56px; }
+  .key { height: 40px; min-width: 32px; font-size: 13px; }
+  .keyWide { min-width: 48px; }
+}

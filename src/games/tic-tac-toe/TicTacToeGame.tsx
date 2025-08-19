@@ -21,7 +21,7 @@ function Square({
   )
 }
 
-export default function Game() {
+export default function TicTacToeGame() {
   //使用 useState 来管理游戏状态
   //squares 存储每个格子的状态，初始值为 null
   //xIsNext 用来判断下一个玩家是 X 还是 O
